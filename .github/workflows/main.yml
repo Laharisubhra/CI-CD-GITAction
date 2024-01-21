@@ -32,16 +32,16 @@ jobs:
               - uses: actions/checkout@v4
 
               - name: Login an dupdate Ec2 instance
-                users: appleboy/ssh-action@v1.0.3
-                  with:
-                host: ${{ secrets.EC2_HOST }}
-                username: ${{ secrets.EC2_SECRET }}
-                password: ${{ secrets.EC2_SSH_KEY }}
-                port: 22
-                script: |
-                pwd
-                whoami
-                sudo apt-get update -y
+                uses: appleboy/ssh-action@v1.0.3
+                with:
+                  host: ${{ secrets.EC2_HOST }}
+                  username: ${{ secrets.EC2_SECRET }}
+                  password: ${{ secrets.EC2_SSH_KEY }}
+                  port: 22
+                  script: |
+                    pwd
+                    whoami
+                    sudo apt-get update -y
                 
 
                 
