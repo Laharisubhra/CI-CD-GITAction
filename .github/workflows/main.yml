@@ -44,7 +44,7 @@ jobs:
                     sudo apt-get update -y
                     sudo apt-get install nginx -y
                     sudo mkdir -p /var/www/html
-                    sudo chown -R ${{ secrets.EC2_USERNAME }} /var/www/html
+                    sudo chown -R ${{ secrets.EC2_SECRET }} /var/www/html
                     sudo chmod -R 755 /var/www/html
                     
                     - name: copy file via ssh password
