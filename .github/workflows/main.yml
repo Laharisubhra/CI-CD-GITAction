@@ -4,19 +4,49 @@ on:
       branches:
             - main
 
+   # pull_request:
+       # branches:
+             # - main
+     # schedules:
+        #  - cron: "0 0 * * *'
+     # release:
+       # types:
+        #  - published
+          #-created
+          #-prereleased
+
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Print my name
-              run: |
-                 echo "Subhra"
-                 echo "gitbuh-cicd"
+           # - name: Print my name
+              #run: |
+                # echo "Subhra"
+                 #echo "gitbuh-cicd"
 
-            - name: current folder
-              run: |
+           # - name: current folder
+              #run: |
+                #pwd
+              - name: checking out the code for the runner
+              - uses: actions/checkout@v4
+
+              - name: Login an dupdate Ec2 instance
+                users: appleboy/ssh-action@v1.0.3
+                  with:
+                host: ${{ secrets.EC2_HOST }}
+                username: ${{ secrets.EC2_SECRET }}
+                password: ${{ secrets.EC2_SSH_KEY }}
+                port: 22
+                script: |
                 pwd
+                whoami
+                sudo apt-get update -y
+                
+
+                
+
+          
             
                
             
