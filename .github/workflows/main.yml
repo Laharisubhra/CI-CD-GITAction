@@ -29,7 +29,7 @@ jobs:
               #run: |
                 #pwd
               - name: checking out the code for the runner
-              - uses: actions/checkout@v4
+                uses: actions/checkout@v4
 
               - name: Login an dupdate Ec2 instance
                 uses: appleboy/ssh-action@v1.0.3
@@ -42,6 +42,9 @@ jobs:
                     pwd
                     whoami
                     sudo apt-get update -y
+                    
+
+                    
                 
 
                 
