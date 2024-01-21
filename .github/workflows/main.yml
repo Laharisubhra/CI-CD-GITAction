@@ -47,7 +47,7 @@ jobs:
                     sudo chown -R ${{ secrets.EC2_SECRET }} /var/www/html
                     sudo chmod -R 755 /var/www/html
                     
-                    - name: copy file via ssh password
+                    - name: copy file via ssh passwords
                       uses: appleboy/scp-action@v0.1.7
                       with:
                         host: ${{ secrets.EC2_HOST }}
